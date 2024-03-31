@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// let a = 1;
+
+	let [a, setA] = useState(1)
+
+	const onClickHandler = () => {
+		setA(++a);
+		console.log(a);
+	}
+
+	const onClickHandlerNull = () => {
+		setA(a = 0);
+		console.log(a);
+	}
+
+
+	return (
+		<div className="App">
+			<p>{a}</p>
+			<button onClick={onClickHandler}>plus</button>
+			<button onClick={onClickHandlerNull}>null</button>
+		</div>
+	);
 }
 
 export default App;
